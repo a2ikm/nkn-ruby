@@ -11,5 +11,6 @@ gem "test-unit", "~> 3.0"
 
 gem "standard", "~> 1.3"
 
+gem "sanitize"
 gem "sinatra"
 gem "puma"
