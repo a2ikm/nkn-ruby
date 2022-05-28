@@ -18,4 +18,20 @@ class NknTest < Test::Unit::TestCase
     expected = [1, 2, 1].pack("U*")
     assert_equal expected, out.string
   end
+
+  test "print \"nakano_pixy\n\"" do
+    source = ""
+    expected = "nakano_pixy\n"
+    expected.each_char do |char|
+      source += "な" * char.ord
+      source += "か"
+      source += "の"
+    end
+    source += "の" if source.chars.last != "の" # exit(0)
+
+    out = StringIO.new
+    result = ::Nkn.run(source, out: out)
+    assert_equal 0, result
+    assert_equal expected, out.string
+  end
 end
